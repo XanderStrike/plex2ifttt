@@ -1,8 +1,8 @@
 name: Test and Tag
 on: [push]
 jobs:
-  routecontroller_tests:
-    name: Route Controller Tests
+  plex2ifttt_tests:
+    name: Run Tests
     runs-on: ubuntu-latest
     container:
       image: gcr.io/cf-networking-images/cfroutesync-integration-test-env
@@ -10,8 +10,8 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v1
       with:
-        go-version: 1.13
+        go-version: 1.14
     - name: Check out code
       uses: actions/checkout@v1
     - name: Run tests
-      run: ginkgo -r .
+      run: ginkgo -r -v .

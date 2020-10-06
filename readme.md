@@ -1,6 +1,6 @@
 # plex2ifttt
 
-This project transforms Plex webhooks into webhook events for IFTTT.
+This awesome project transforms Plex webhooks into webhook events for IFTTT.
 
 I use this to automatically dim my lights when my home theater is playing media
 on Plex, and raise them once it's done (or paused).

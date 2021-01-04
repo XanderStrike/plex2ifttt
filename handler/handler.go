@@ -52,8 +52,8 @@ func (h Handler) HandleEvent(user, player, event string) {
 			panic(err)
 		}
 
-		log.Println("Sunrise: ", sunrise.In(loc).Format("Mon 3:04PM"), "Sunset: ", sunset.In(loc).Format("Mon 3:04PM"), "Now: ", now.Format("Mon 3:04PM"))
-		if sunrise.In(loc).Hour() > now.Hour() && now.Hour() < sunset.In(loc).Hour() {
+		log.Println("Sunrise: ", sunrise.In(loc).Format("Mon 3:04PM"), "Sunset: ", sunset.In(loc).Format("Mon 3:04PM"), "Now: ", now.In(loc).Format("Mon 3:04PM"))
+		if sunrise.In(loc).Hour() > now.In(loc).Hour() && now.In(loc).Hour() < sunset.In(loc).Hour() {
 			log.Println("Send play (night)")
 			h.Requester("plex_play")
 		} else {

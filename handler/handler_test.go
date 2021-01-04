@@ -85,7 +85,7 @@ var _ = Describe("Handler", func() {
 					Fail("Overwrite me!")
 				},
 				Time: func() time.Time {
-					str := "2014-11-12T08:00:26.371Z"
+					str := "2014-11-12T10:00:26.371Z"
 					t, err := time.Parse(time.RFC3339, str)
 					Expect(err).NotTo(HaveOccurred())
 					return t
@@ -93,7 +93,7 @@ var _ = Describe("Handler", func() {
 			}
 		})
 
-		It("sends the plex_play_day event in a play", func() {
+		It("sends the plex_play event in a play", func() {
 			h.Requester = func(msg string) {
 				Expect(msg).To(Equal("plex_play"))
 			}

@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/kelvins/sunrisesunset"
 )
 
 type Handler struct {
@@ -32,10 +34,25 @@ func (h Handler) HandleEvent(user, player, event string) {
 	}
 
 	if event == "media.play" || event == "media.resume" || event == "media.scrobble" {
-		cur := h.Time()
-		log.Println("Current UTC hour of the day is", cur.Hour())
+		loc, err := time.LoadLocation("America/Los_Angeles")
+		if err != nil {
+			panic(err)
+		}
+		now := h.Time().In(loc)
 
-		if cur.Hour() < 16 && cur.Hour() > 2 {
+		p := sunrisesunset.Parameters{
+			Latitude:  -33.960,
+			Longitude: -118.351,
+			UtcOffset: -8.0,
+			Date:      now,
+		}
+
+		sunrise, sunset, err := p.GetSunriseSunset()
+		if err != nil {
+			panic(err)
+		}
+
+		if sunrise.Hour() > now.Hour() && now.Hour() < sunset.Hour() {
 			log.Println("Send play (night)")
 			h.Requester("plex_play")
 		} else {

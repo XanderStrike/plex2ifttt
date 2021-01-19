@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/kelvins/sunrisesunset"
@@ -23,12 +24,12 @@ func New() Handler {
 }
 
 func (h Handler) HandleEvent(user, player, event string) {
-	if user != os.Getenv("USER_ID") {
+	if !strings.Contains(os.Getenv("USER_ID"), user) {
 		log.Println("Wrong user:", user)
 		return
 	}
 
-	if player != os.Getenv("PLAYER_UUID") {
+	if !strings.Contains(os.Getenv("PLAYER_UUID"), player) {
 		log.Println("Unkown player:", player)
 		return
 	}

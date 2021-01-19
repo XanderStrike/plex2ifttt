@@ -37,7 +37,7 @@ var _ = Describe("Handler", func() {
 			os.Setenv("USER_ID", "user")
 			os.Setenv("PLAYER_UUID", "player")
 
-			h.HandleEvent("user", "wrongplayer", "event")
+			h.HandleEvent("user", "wrong", "event")
 		})
 	})
 
@@ -48,7 +48,7 @@ var _ = Describe("Handler", func() {
 					Fail("Overwrite me!")
 				},
 				Time: func() time.Time {
-					str := "2014-11-12T00:00:26.371Z"
+					str := "2014-11-12T8:00:26.371Z"
 					t, err := time.Parse(time.RFC3339, str)
 					Expect(err).NotTo(HaveOccurred())
 					return t
@@ -56,25 +56,25 @@ var _ = Describe("Handler", func() {
 			}
 		})
 
-		It("sends the plex_play_day event in a play", func() {
-			h.Requester = func(msg string) {
-				Expect(msg).To(Equal("plex_play_day"))
-			}
-			os.Setenv("USER_ID", "user")
-			os.Setenv("PLAYER_UUID", "player")
+		// It("sends the plex_play_day event in a play", func() {
+		// 	h.Requester = func(msg string) {
+		// 		Expect(msg).To(Equal("plex_play_day"))
+		// 	}
+		// 	os.Setenv("USER_ID", "user")
+		// 	os.Setenv("PLAYER_UUID", "player")
 
-			h.HandleEvent("user", "player", "media.play")
-			Expect(true).To(BeTrue())
-		})
+		// 	h.HandleEvent("user", "player", "media.play")
+		// 	Expect(true).To(BeTrue())
+		// })
 
 		It("sends the plex_pause event in a pause", func() {
 			h.Requester = func(msg string) {
 				Expect(msg).To(Equal("plex_pause"))
 			}
-			os.Setenv("USER_ID", "user")
+			os.Setenv("USER_ID", "other,user")
 			os.Setenv("PLAYER_UUID", "player")
 
-			h.HandleEvent("user", "player", "media.pause")
+			h.HandleEvent("user", "player,other", "media.pause")
 			Expect(true).To(BeTrue())
 		})
 	})

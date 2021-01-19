@@ -30,12 +30,14 @@ clicking "Documentation."
 
 If you do not know your player's ID, the app logs all unknown player IDs.
 
+You can specify multiple user or player IDs by comma separating them.
+
 Deploy with Docker:
 
 ```
   docker run \
-    -e USER_ID=<username> \
-    -e PLAYER_UUID=<uuid> \
+    -e USER_ID=<username1>,<username2> \
+    -e PLAYER_UUID=<uuid1>,<uuid2> \
     -e IFTTT_KEY=<key> \
     -n plex2ifttt \
     -p 8080:8080 \

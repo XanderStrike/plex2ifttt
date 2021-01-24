@@ -63,7 +63,7 @@ func (h Handler) HandleEvent(user, player, event string) {
 			log.Println("Send play (night)")
 			h.Requester("plex_play")
 		}
-	} else {
+	} else if event == "media.pause" || event == "media.stop" {
 		log.Println("Send pause")
 		h.Requester("plex_pause")
 	}

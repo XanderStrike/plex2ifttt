@@ -11,8 +11,6 @@ jobs:
     steps:
     - name: Set up Go
       uses: actions/setup-go@v1
-      with:
-        go-version: 1.14
     - name: Install Ginkgo
       run: |
         go get github.com/onsi/ginkgo/ginkgo
@@ -23,6 +21,7 @@ jobs:
       run: ginkgo -r -v .
 
   publish:
+    needs: tests
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:

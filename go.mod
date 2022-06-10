@@ -8,5 +8,5 @@ require (
 	github.com/onsi/ginkgo v1.14.2
 	github.com/onsi/gomega v1.10.4
 	github.com/sclevine/agouti v3.0.0+incompatible // indirect
-	github.com/xanderstrike/plexhooks v0.0.0-20200926011736-c63bcd35fe3e
+	github.com/xanderstrike/plexhooks v0.0.0-20220407161444-06c435c2dd83
 )

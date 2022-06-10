@@ -38,6 +38,8 @@ github.com/xanderstrike/plexhooks v0.0.0-20190226042007-cbcc0e4d77a5 h1:4dorjotJ
 github.com/xanderstrike/plexhooks v0.0.0-20190226042007-cbcc0e4d77a5/go.mod h1:IXlzovfjAZX8O7nzPwCiYe2T0i/0enZzzqkvVq8N02M=
 github.com/xanderstrike/plexhooks v0.0.0-20200926011736-c63bcd35fe3e h1:IeBBs3KadFYmbWcRw/qBuM3bscr2iKC1hYBr8GS5Gps=
 github.com/xanderstrike/plexhooks v0.0.0-20200926011736-c63bcd35fe3e/go.mod h1:IXlzovfjAZX8O7nzPwCiYe2T0i/0enZzzqkvVq8N02M=
+github.com/xanderstrike/plexhooks v0.0.0-20220407161444-06c435c2dd83 h1:oy9i9iD3ADTT60NrHWcUrMWIyNFvWJk0yf/VRbj/fPQ=
+github.com/xanderstrike/plexhooks v0.0.0-20220407161444-06c435c2dd83/go.mod h1:IXlzovfjAZX8O7nzPwCiYe2T0i/0enZzzqkvVq8N02M=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/net v0.0.0-20180906233101-161cd47e91fd/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
